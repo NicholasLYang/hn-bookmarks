@@ -16,6 +16,19 @@ let make = (_children, ~index, ~title, ~rating, ~url) => {
       }>
       <div style={ReactDOMRe.Style.make(~width="40px", ())}> {ReasonReact.string(string_of_int(index))} </div>
       <RatingCounter rating />
-      <a href=url> {ReasonReact.string(title)} </a>
+      <div style={ReactDOMRe.Style.make(~width="60%", ())}> <a href=url> {ReasonReact.string(title)} </a> </div>
+      <div
+        style={
+          ReactDOMRe.Style.make(
+            ~display="flex",
+            ~flexDirection="row",
+            ~justifyContent="flex-end",
+            ~flexShrink="4",
+            ~width="100%",
+            (),
+          )
+        }>
+        <a href="/edit"> {ReasonReact.string("Edit")} </a>
+      </div>
     </div>,
 };

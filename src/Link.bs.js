@@ -31,9 +31,23 @@ function make(_, index, title, rating, url) {
                               style: {
                                 width: "40px"
                               }
-                            }, String(index)), ReasonReact.element(undefined, undefined, RatingCounter$ReactTemplate.make(/* array */[], rating)), React.createElement("a", {
-                              href: url
-                            }, title));
+                            }, String(index)), ReasonReact.element(undefined, undefined, RatingCounter$ReactTemplate.make(/* array */[], rating)), React.createElement("div", {
+                              style: {
+                                width: "60%"
+                              }
+                            }, React.createElement("a", {
+                                  href: url
+                                }, title)), React.createElement("div", {
+                              style: {
+                                display: "flex",
+                                width: "100%",
+                                flexDirection: "row",
+                                flexShrink: "4",
+                                justifyContent: "flex-end"
+                              }
+                            }, React.createElement("a", {
+                                  href: "/edit"
+                                }, "Edit")));
             }),
           /* initialState */component[/* initialState */10],
           /* retainedProps */component[/* retainedProps */11],
