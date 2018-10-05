@@ -11,7 +11,7 @@ var ApolloInMemoryCache = require("reason-apollo/src/ApolloInMemoryCache.bs.js")
 
 var inMemoryCache = ApolloInMemoryCache.createInMemoryCache(undefined, undefined, /* () */0);
 
-var httpLink = ApolloLinks.createHttpLink("http://localhost:8080", undefined, undefined, undefined, undefined, undefined, /* () */0);
+var httpLink = ApolloLinks.createHttpLink("http://localhost:9292/graphql", undefined, undefined, undefined, undefined, undefined, /* () */0);
 
 var client = ReasonApollo.createApolloClient(httpLink, inMemoryCache, undefined, undefined, undefined, undefined, /* () */0);
 

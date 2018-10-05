@@ -8,3 +8,5 @@ gem 'sequel'
 gem 'graphql'
 gem 'grate'
 gem 'hanami'
+gem 'rack-cors', require: 'rack/cors'
+

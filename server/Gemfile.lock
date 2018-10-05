@@ -96,6 +96,7 @@ GEM
     minitest (5.11.3)
     pg (1.1.3)
     rack (2.0.5)
+    rack-cors (1.0.2)
     sequel (5.13.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
@@ -114,6 +115,7 @@ DEPENDENCIES
   grate
   hanami
   json
+  rack-cors
   sequel
 
 BUNDLED WITH

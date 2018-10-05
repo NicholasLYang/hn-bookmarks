@@ -1,4 +1,5 @@
 type bookmark = {
+  id: string,
   url: string,
   title: string,
 };
@@ -7,6 +8,7 @@ module GetBookmarks = [%graphql
   {|
   query getBookmarks {
       bookmarks @bsRecord {
+          id
           title
           url
       }
@@ -58,10 +60,7 @@ let make = _children => {
                  <Header />
                  {
                    ReasonReact.array(
-                     Array.mapi(
-                       (index, {url, title}) => <Link index key={string_of_int(index)} url title />,
-                       response##bookmarks,
-                     ),
+                     Array.mapi((index, {id, url, title}) => <Link index key=id url title />, response##bookmarks),
                    )
                  }
                </div>

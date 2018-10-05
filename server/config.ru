@@ -1,3 +1,18 @@
 require_relative './config/application'
 
-run Application.new
+app = Application.new
+use Rack::Cors do
+  allow do
+    origins '*'
+    resource '*', :headers => :any,
+                 :methods => [
+                     :get,
+                     :post,
+                     :put,
+                     :delete,
+                     :options
+                 ],
+                 :expose  => ['access-token', 'expiry', 'token-type', 'uid', 'client']
+  end
+end
+run app

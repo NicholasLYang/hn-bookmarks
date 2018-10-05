@@ -12,7 +12,7 @@ var ReasonApollo = require("reason-apollo/src/ReasonApollo.bs.js");
 var Link$ReactTemplate = require("./Link.bs.js");
 var Header$ReactTemplate = require("./Header.bs.js");
 
-var ppx_printed_query = "query getBookmarks  {\nbookmarks  {\ntitle  \nurl  \n}\n\n}\n";
+var ppx_printed_query = "query getBookmarks  {\nbookmarks  {\nid  \ntitle  \nurl  \n}\n\n}\n";
 
 function parse(value) {
   var match = Js_json.decodeObject(value);
@@ -25,23 +25,32 @@ function parse(value) {
                 var match = Js_json.decodeObject(value);
                 if (match !== undefined) {
                   var value$1 = Js_primitive.valFromOption(match);
-                  var match$1 = value$1["title"];
-                  var field_title;
+                  var match$1 = value$1["id"];
+                  var field_id;
                   if (match$1 !== undefined) {
                     var match$2 = Js_json.decodeString(match$1);
-                    field_title = match$2 !== undefined ? match$2 : Js_exn.raiseError("graphql_ppx: Expected string, got " + JSON.stringify(match$1));
+                    field_id = match$2 !== undefined ? match$2 : Js_exn.raiseError("graphql_ppx: Expected string, got " + JSON.stringify(match$1));
+                  } else {
+                    field_id = Js_exn.raiseError("graphql_ppx: Field id on type Bookmark is missing");
+                  }
+                  var match$3 = value$1["title"];
+                  var field_title;
+                  if (match$3 !== undefined) {
+                    var match$4 = Js_json.decodeString(match$3);
+                    field_title = match$4 !== undefined ? match$4 : Js_exn.raiseError("graphql_ppx: Expected string, got " + JSON.stringify(match$3));
                   } else {
                     field_title = Js_exn.raiseError("graphql_ppx: Field title on type Bookmark is missing");
                   }
-                  var match$3 = value$1["url"];
+                  var match$5 = value$1["url"];
                   var field_url;
-                  if (match$3 !== undefined) {
-                    var match$4 = Js_json.decodeString(match$3);
-                    field_url = match$4 !== undefined ? match$4 : Js_exn.raiseError("graphql_ppx: Expected string, got " + JSON.stringify(match$3));
+                  if (match$5 !== undefined) {
+                    var match$6 = Js_json.decodeString(match$5);
+                    field_url = match$6 !== undefined ? match$6 : Js_exn.raiseError("graphql_ppx: Expected string, got " + JSON.stringify(match$5));
                   } else {
                     field_url = Js_exn.raiseError("graphql_ppx: Field url on type Bookmark is missing");
                   }
                   return /* record */[
+                          /* id */field_id,
                           /* url */field_url,
                           /* title */field_title
                         ];
@@ -138,7 +147,7 @@ function make$1() {
                                                   flexDirection: "column"
                                                 }
                                               }, ReasonReact.element(undefined, undefined, Header$ReactTemplate.make(/* array */[])), $$Array.mapi((function (index, param) {
-                                                      return ReasonReact.element(String(index), undefined, Link$ReactTemplate.make(/* array */[], index, param[/* title */1], param[/* url */0]));
+                                                      return ReasonReact.element(param[/* id */0], undefined, Link$ReactTemplate.make(/* array */[], index, param[/* title */2], param[/* url */1]));
                                                     }), result[0].bookmarks));
                                   } else {
                                     return React.createElement("div", {
