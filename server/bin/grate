@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'grate'
+Grate::CLI.start(ARGV)
