@@ -1,6 +1,6 @@
 let component = ReasonReact.statelessComponent("Link");
 
-let make = (_children, ~index, ~title, ~rating, ~url) => {
+let make = (_children, ~index, ~title, ~url) => {
   ...component,
   render: _self =>
     <div
@@ -15,7 +15,6 @@ let make = (_children, ~index, ~title, ~rating, ~url) => {
         )
       }>
       <div style={ReactDOMRe.Style.make(~width="40px", ())}> {ReasonReact.string(string_of_int(index))} </div>
-      <RatingCounter rating />
       <a href=url> {ReasonReact.string(title)} </a>
     </div>,
 };
