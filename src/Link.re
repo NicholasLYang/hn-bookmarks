@@ -10,18 +10,18 @@ let make = (_children, ~index, ~title, ~url) => {
           ~flexDirection="row",
           ~justifyContent="flex-start",
           ~alignItems="center",
-          ~width="80%",
+          ~width="100%",
           (),
         )
       }>
-      <div style={ReactDOMRe.Style.make(~width="40px", ())}> {ReasonReact.string(string_of_int(index))} </div>
+      <div style={ReactDOMRe.Style.make(~width="40px", ())}> {ReasonReact.string(string_of_int(index + 1))} </div>
       <div style={ReactDOMRe.Style.make(~width="60%", ())}> <a href=url> {ReasonReact.string(title)} </a> </div>
       <div
         style={
           ReactDOMRe.Style.make(
             ~display="flex",
             ~flexDirection="row",
-            ~justifyContent="flex-end",
+            ~justifyContent="center",
             ~flexShrink="4",
             ~width="100%",
             (),

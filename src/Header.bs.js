@@ -24,15 +24,14 @@ function make() {
                             display: "flex",
                             fontWeight: "500",
                             height: "50px",
-                            marginBottom: "40px",
-                            paddingLeft: "30px",
-                            width: "90%",
+                            width: "100%",
                             alignItems: "center",
                             flexDirection: "row"
                           }
                         }, React.createElement("div", {
                               style: {
-                                fontSize: "1.4em"
+                                fontSize: "1.4em",
+                                paddingLeft: "30px"
                               }
                             }, "Bookmarks"));
             }),

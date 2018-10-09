@@ -21,7 +21,7 @@ function make(_, index, title, url) {
               return React.createElement("div", {
                           style: {
                             display: "flex",
-                            width: "80%",
+                            width: "100%",
                             alignItems: "center",
                             flexDirection: "row",
                             justifyContent: "flex-start"
@@ -30,7 +30,7 @@ function make(_, index, title, url) {
                               style: {
                                 width: "40px"
                               }
-                            }, String(index)), React.createElement("div", {
+                            }, String(index + 1 | 0)), React.createElement("div", {
                               style: {
                                 width: "60%"
                               }
@@ -42,7 +42,7 @@ function make(_, index, title, url) {
                                 width: "100%",
                                 flexDirection: "row",
                                 flexShrink: "4",
-                                justifyContent: "flex-end"
+                                justifyContent: "center"
                               }
                             }, React.createElement("a", {
                                   href: "/edit"
